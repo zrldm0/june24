@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>20th Birthday</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Cormorant Garamond',serif;overflow-x:hidden}
+section{min-height:100vh}
+
+.hero{position:relative;height:100vh}
+.bg{width:100%;height:100%;object-fit:cover}
+.dark{position:absolute;inset:0;background:rgba(0,0,0,.35)}
+.hero-content{
+  position:absolute;
+  left:8%;
+  bottom:15%;
+  color:white;
+}
+.hero-content h1{font-size:5rem;font-weight:300}
+.age{font-size:8rem;font-style:italic}
+
+.collage-section{
+  position:relative;
+  overflow:hidden;
+  background:#111;
+  min-height:100vh;
+}
+#collage{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:12px;
+  padding:20px;
+  animation:zoom 20s linear infinite alternate;
+}
+#collage img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border:8px solid white;
+}
+.collage-overlay{
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,.5);
+}
+.center-text{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  text-align:center;
+}
+.big{
+  font-size:8rem;
+  font-style:italic;
+}
+
+.rank-section{
+  padding:60px;
+  background:#dfe9f7;
+}
+.rank-section h2{font-size:5rem}
+.rank-section h3{font-size:2rem;margin-bottom:30px}
+.rank-grid{
+  display:flex;
+  gap:40px;
+  align-items:center;
+}
+.note{
+  background:white;
+  padding:30px;
+  max-width:450px;
+  box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+.note h4{
+  font-size:1.5rem;
+  margin-bottom:12px;
+}
+.note p{
+  font-size:1.1rem;
+  line-height:1.8;
+  color:#333;
+}
+.photos{
+  display:flex;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.polaroid{
+  width:220px;
+  background:white;
+  padding:10px;
+  box-shadow:0 10px 20px rgba(0,0,0,.2);
+  object-fit:cover;
+  height:260px;
+}
+.rot1{transform:rotate(-8deg)}
+.rot2{transform:rotate(6deg)}
+.rot3{transform:rotate(-3deg)}
+
+.letter-section{
+  display:flex;
+  min-height:100vh;
+}
+.video-box,.letter{width:50%}
+.video-box video{width:100%;height:100%;object-fit:cover}
+.letter{
+  padding:60px 50px;
+  font-size:1.3rem;
+  line-height:2;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.letter h2{
+  font-size:3rem;
+  margin-bottom:30px;
+  font-weight:300;
+}
+.letter p{
+  color:#333;
+  margin-bottom:16px;
+}
+.letter .sign{
+  margin-top:30px;
+  font-style:italic;
+  font-size:1.5rem;
+}
+
+.reveal{
+  opacity:0;
+  transform:translateY(60px);
+  transition:1s;
+}
+.reveal.show{
+  opacity:1;
+  transform:none;
+}
+
+#musicBtn{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  width:60px;
+  height:60px;
+  border:none;
+  border-radius:50%;
+  font-size:24px;
+  cursor:pointer;
+  background:white;
+  box-shadow:0 4px 15px rgba(0,0,0,.2);
+  z-index:999;
+}
+
+@keyframes zoom{
+  from{transform:scale(1)}
+  to{transform:scale(1.15)}
+}
+
+@media(max-width:768px){
+  .hero-content h1{font-size:3rem}
+  .age{font-size:5rem}
+  #collage{grid-template-columns:repeat(2,1fr)}
+  #collage img{height:150px}
+  .big{font-size:5rem}
+  .rank-grid,.letter-section{flex-direction:column}
+  .video-box,.letter{width:100%}
+  .polaroid{width:130px;height:160px}
+  .rank-section{padding:25px}
+  .letter{padding:35px 25px}
+}
+
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <img id="coverPhoto" class="bg" alt="cover">
+  <div class="dark"></div>
+  <div class="hero-content reveal">
+    <h1>HAPPY<br>BIRTHDAY!</h1>
+    <div class="age">20th</div>
+    <p>June 24, 2026</p>
+  </div>
+</section>
+
+<section class="collage-section">
+  <div id="collage"></div>
+  <div class="collage-overlay"></div>
+  <div class="center-text reveal">
+    <div class="big">What</div>
+    <h2>things you get when<br>you turn</h2>
+    <div class="big">20</div>
+  </div>
+</section>
+
+<section class="rank-section reveal">
+  <h2>Raisya</h2>
+  <h3>From Keza</h3>
+  <div class="rank-grid">
+    <div class="note">
+      <h4>For Raisya,</h4>
+      <p>
+        - —<br>
+        -<br>
+        -.<br><br>
+        -,<br>
+        -<br>
+        -<br>
+        -<br>
+        -
+      </p>
+    </div>
+    <div class="photos">
+      <img id="p1" class="polaroid rot1" alt="foto 1">
+      <img id="p2" class="polaroid rot2" alt="foto 2">
+      <img id="p3" class="polaroid rot3" alt="foto 3">
+    </div>
+  </div>
+</section>
+
+<section class="letter-section">
+  <div class="video-box reveal">
+    <video controls autoplay muted loop>
+      <source id="videoSource">
+    </video>
+  </div>
+  <div class="letter reveal">
+    <h2>Happy Birthday, Raisya.</h2>
+    <p>
+      Barakallah fi umriik
+    </p>
+    <p>
+      Semoga kamu selalu bahagia, harapanku hanya yang terbaik untukmu. 
+      Aku harap kamu bisa mencintai dirimu layaknya orang-orang terdekat kamu yang mencintai kamu.
+    </p>
+    <p>
+      Kamu berhak bahagia.
+You deserve all of happiness.
+I love you. Happy twenties.
+    </p>
+    <p>
+      
+    </p>
+    <div class="sign">— Keza</div>
+  </div>
+</section>
+
+<button id="musicBtn">♪</button>
+<audio id="bgMusic" loop></audio>
+
+<script>
+
+const coverPhoto = "original 2026-03-30 201948eb1fcd6007d5.jpeg";
+
+const collagePhotos = [
+  "img_9957.jpeg",
+  "img_3473.jpeg",
+  "img_4291.jpeg",
+  "img_4633.jpeg",
+  "img_5550.jpeg",
+  "img_6665.jpeg",
+  "img_6905.jpeg",
+  "img_6923.jpeg",
+  "img_6947.jpeg",
+  "img_7017.jpeg",
+  "img_7846.jpeg",
+  "img_8514.jpeg",
+  "img_9356.jpeg",
+  "img_9378.jpeg"
+];
+
+const polaroidPhotos = [
+  "original 2026-03-30 201948eb1fcd6007d5.jpeg",
+  "img_8467.jpeg",
+  "img_3137.jpeg"
+];
+
+const videoUrl = "https://drive.google.com/uc?export=download&id=GANTI_DENGAN_VIDEO_FILE_ID";
+
+const musicUrl = "https://archive.org/download/ssstik.io_1781974831851/ssstik.io_1781974831851.mp3";
+
+document.getElementById('coverPhoto').src = coverPhoto;
+document.getElementById('p1').src = polaroidPhotos[0];
+document.getElementById('p2').src = polaroidPhotos[1];
+document.getElementById('p3').src = polaroidPhotos[2];
+
+// Collage
+const collage = document.getElementById('collage');
+const TOTAL_SLOTS = 40;
+for (let i = 0; i < TOTAL_SLOTS; i++) {
+  const img = document.createElement('img');
+  img.src = collagePhotos[i % collagePhotos.length];
+  img.alt = `foto ${i + 1}`;
+  collage.appendChild(img);
+}
+
+// Video
+document.getElementById('videoSource').src = videoUrl;
+document.querySelector('video').load();
+
+// Musik
+const bgMusic = document.getElementById('bgMusic');
+if (musicUrl) bgMusic.src = musicUrl;
+
+const musicBtn = document.getElementById('musicBtn');
+let playing = false;
+musicBtn.addEventListener('click', () => {
+  if (!musicUrl) return;
+  if (playing) {
+    bgMusic.pause();
+    musicBtn.textContent = '♪';
+  } else {
+    bgMusic.play().catch(() => {});
+    musicBtn.textContent = '⏸';
+  }
+  playing = !playing;
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('show');
+  });
+});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+</script>
+</body>
+</html>
